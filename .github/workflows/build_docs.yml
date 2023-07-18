@@ -54,6 +54,14 @@ jobs:
           cd build
           mkdir -p doc/html/unsupported
           doxygen doc/Doxygen-eigen-unsupported.cfg
+      - name: Copy additional files
+        shell: bash -el {0}
+        run: |
+          cp doc/AsciiQuickReference.txt build/doc/html
+          cp doc/Eigen_Silly_Professor_64x64.png build/doc/html
+          cp doc/ftv2node.png build/doc/html
+          cp doc/ftv2pnode.png build/doc/html
+          cp doc/eigen_navtree_hacks.js build/doc/html
       - name: Clarify origins
         shell: bash -el {0}
         run: |
