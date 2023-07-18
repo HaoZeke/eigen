@@ -58,8 +58,9 @@ jobs:
         shell: bash -el {0}
         run: |
           cd build/doc/html
+          awk '{gsub(/You can <a href="eigen-doc.tgz">download<\/a> it as a tgz archive for offline reading./, "")}1' index.html > tmp && mv -f tmp index.html
           find . -name "*.html" -type f -exec sh -c '
-          awk '\''{gsub(/and the <a class="outlink" href="https:\/\/github.com\/HaoZeke\/doxyYoda">doxyYoda theme<\/a>/, "&. \nThis is an unofficial themed variant maintained by <a href=\"https://rgoswami.me\">Rohit Goswami</a>, based on the <a href=\"https://eigen.tuxfamily.org/dox/\">official documentation</a>.")}1'\'' "$1" > tmp && mv tmp "$1"
+          awk '\''{gsub(/and the <a class="outlink" href="https:\/\/github.com\/HaoZeke\/doxyYoda">doxyYoda theme<\/a>/, "&. \nThis is an unofficial themed variant maintained by <a href=\"https://rgoswami.me\">Rohit Goswami</a>, based on the <a href=\"https://eigen.tuxfamily.org/dox/\">official documentation</a>.")}1'\'' "$1" > tmp && mv -f tmp "$1"
           ' sh {} \;
       - name: Archive artifact
         shell: bash -el {0}
