@@ -40,6 +40,7 @@ jobs:
         run: |
           cp doc/Doxygen-eigen.cfg build/doc
           cd build
+          mkdir -p doc/html/unsupported
           doxygen doc/Doxygen-eigen.cfg
       - name: Archive artifact
         shell: bash -el {0}
