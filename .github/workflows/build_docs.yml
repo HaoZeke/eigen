@@ -54,6 +54,13 @@ jobs:
           cd build
           mkdir -p doc/html/unsupported
           doxygen doc/Doxygen-eigen-unsupported.cfg
+      - name: Clarify origins
+        shell: bash -el {0}
+        run: |
+          cd build/doc/html
+          find . -name "*.html" -type f -exec sh -c '
+          awk '\''{gsub(/and the <a class="outlink" href="https:\/\/github.com\/HaoZeke\/doxyYoda">doxyYoda theme<\/a>/, "&. \nThis is an unofficial themed variant maintained by <a href=\"https://rgoswami.me\">Rohit Goswami</a>, based on the <a href=\"https://eigen.tuxfamily.org/dox/\">official documentation</a>.")}1'\'' "$1" > tmp && mv tmp "$1"
+          ' sh {} \;
       - name: Archive artifact
         shell: bash -el {0}
         if: runner.os == 'Linux'

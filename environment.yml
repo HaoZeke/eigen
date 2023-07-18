@@ -7,7 +7,9 @@ name: rgeigen
 channels:
   - conda-forge
 dependencies:
+  - compilers
   - cmake
   - pkg-config
+  - gawk
   - graphviz
   - doxygen==1.9.1
