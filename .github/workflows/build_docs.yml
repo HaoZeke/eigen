@@ -22,6 +22,11 @@ jobs:
           mkdir build
           cd build
           cmake ..
+      - name: Build doc examples
+        shell: bash -el {0}
+        run: |
+          cd build
+          make doc -j$(nproc)
       - name: Get external tags
         shell: bash -el {0}
         run: |
