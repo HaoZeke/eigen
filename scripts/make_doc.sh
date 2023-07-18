@@ -9,5 +9,6 @@ wget https://github.com/HaoZeke/doxyYoda/releases/download/0.0.2/doxyYoda_0.0.2.
 tar -xf doxyYoda_0.0.2.tar.gz
 rm -rf doxyYoda_0.0.2.tar.gz
 cd ../
-cp ../doc/Doxygen-eigen.cfg doc/
+cp ../doc/Doxygen-{eigen,eigen-unsupported}.cfg doc/
 doxygen doc/Doxygen-eigen.cfg
+doxygen doc/Doxygen-eigen-unsupported.cfg

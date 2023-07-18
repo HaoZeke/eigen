@@ -39,9 +39,16 @@ jobs:
         shell: bash -el {0}
         run: |
           cp doc/Doxygen-eigen.cfg build/doc
+          cp doc/Doxygen-eigen-unsupported.cfg build/doc
+          cd build
+          doxygen doc/Doxygen-eigen.cfg
+      - name: Generate Unsupported Docs
+        shell: bash -el {0}
+        run: |
+          cp doc/Doxygen-eigen-unsupported.cfg build/doc
           cd build
           mkdir -p doc/html/unsupported
-          doxygen doc/Doxygen-eigen.cfg
+          doxygen doc/Doxygen-eigen-unsupported.cfg
       - name: Archive artifact
         shell: bash -el {0}
         if: runner.os == 'Linux'
