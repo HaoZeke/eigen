@@ -1,0 +1,13 @@
+# To use:
+#
+#   $ mamba env create -f environment.yml
+#   $ mamba activate rgeigen
+#
+name: rgeigen
+channels:
+  - conda-forge
+dependencies:
+  - cmake
+  - pkg-config
+  - graphviz
+  - doxygen==1.9.1
